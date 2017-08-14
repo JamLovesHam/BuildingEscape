@@ -1,6 +1,7 @@
 // No unauthorized reproduction of this source code will be tolerated.
 
 #pragma once
+#include "DrawDebugHelpers.h"
 #include "Engine/World.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
@@ -25,6 +26,7 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-		
+	UPROPERTY(EditAnywhere)
+	float Reach = 100.0f;
 	
 };
