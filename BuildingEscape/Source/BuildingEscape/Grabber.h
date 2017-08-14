@@ -3,6 +3,7 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Engine/World.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
@@ -29,5 +30,7 @@ public:
 private:
 	UPROPERTY(VisibleAnywhere)
 	float Reach = 100.0f;
+
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
 };
