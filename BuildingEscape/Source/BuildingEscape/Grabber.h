@@ -36,8 +36,15 @@ private:
 
 	UInputComponent* InputComponent = nullptr;
 
-	// Ray-cast and grab what's in reach
+	/// Ray-cast and grab/release what's in reach
 	void Grab();
 	void Release();
+	// Find (assumed) attached physics handle
+	void FindPhysicsHandleComponent();
+	// Setup/Find (assumed) attached input component
+	void FindInputComponent();
+	// Return hit for first physics body in reach
+	FHitResult GetFirstPhysicsBodyInReach() const;
+
 
 };
