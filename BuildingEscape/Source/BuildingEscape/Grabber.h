@@ -31,7 +31,7 @@ public:
 
 private:
 	UPROPERTY(VisibleAnywhere)
-	float Reach = 100.0f;
+	float Reach = 200.0f;
 
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
@@ -46,6 +46,8 @@ private:
 	void FindInputComponent();
 	// Return hit for first physics body in reach
 	FHitResult GetFirstPhysicsBodyInReach() const;
+	FVector GetReachLineStart() const;
+	FVector GetReachLineEnd() const;
 
 
 };
