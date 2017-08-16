@@ -37,8 +37,8 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	float CloseAngle = 0.0f;
 
-	UPROPERTY(VisibleAnywhere)
-	ATriggerVolume* PressurePlate;
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume* PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 1.0f;
@@ -48,7 +48,7 @@ private:
 
 	float LastDoorOpenTime;
 
-	AActor* Owner;
+	AActor* Owner = nullptr;
 
 	float GetTotalMassOfActorsOnPlate();
 	
