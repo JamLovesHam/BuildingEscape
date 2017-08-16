@@ -13,8 +13,6 @@ UOpenDoor::UOpenDoor()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
@@ -39,34 +37,31 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	if (GetTotalMassOfActorsOnPlate() >= DoorRequiredOpenMass)
 	{
 		OpenDoor();
-		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
 	}
-	// Check if it's time to close the door
-	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay) 
+	else
 	{
 		CloseDoor();
 	}
-
-	
 }
 
 void UOpenDoor::OpenDoor()
 {
 	// Owner->SetActorRotation(FRotator(0.0f, OpenAngle, 0.0f));
 	OnOpenRequest.Broadcast();
+	return;
 }
 
 void UOpenDoor::CloseDoor()
 {
 	// Owner->SetActorRotation(FRotator(0.0f, CloseAngle, 0.0f));
 	OnCloseRequest.Broadcast();
+	return;
 }
 
 float UOpenDoor::GetTotalMassOfActorsOnPlate() 
 {
 	float TotalMass = 0.0f;
 	// find overlapping actors
-	TArray<AActor*> OverlappingActors;
 	if (!PressurePlate) { return TotalMass; }
 	PressurePlate->GetOverlappingActors(OUT OverlappingActors);
 	// Iterate through them adding their masses

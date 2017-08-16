@@ -37,25 +37,14 @@ public:
 	FOnCloseRequest OnCloseRequest;
 
 private:
-	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = 90.0f;
-
-	UPROPERTY(VisibleAnywhere)
-	float CloseAngle = 0.0f;
-
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay = 1.0f;
-
-	UPROPERTY(EditAnywhere)
 	float DoorRequiredOpenMass = 50.0f;
 
-	float LastDoorOpenTime;
-
 	AActor* Owner = nullptr;
-
+	TArray<AActor*> OverlappingActors;
 	float GetTotalMassOfActorsOnPlate();
 	
 };
